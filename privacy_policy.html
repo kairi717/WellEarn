@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - WellEarn</title>
+    <style>
+        :root {
+            --apple-bg: #F5F5F7;
+            --apple-surface: #FFFFFF;
+            --apple-primary: #00C7BE;
+            --apple-text-primary: #1D1D1F;
+            --apple-text-secondary: #6E6E73;
+            --apple-border: #E5E5EA;
+        }
+        body {
+            background-color: var(--apple-bg);
+            color: var(--apple-text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: var(--apple-surface);
+            border: 1px solid var(--apple-border);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            box-sizing: border-box;
+        }
+        h1 {
+            color: var(--apple-primary);
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .date {
+            font-size: 13px;
+            color: var(--apple-text-secondary);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--apple-text-primary);
+            border-bottom: 1px solid var(--apple-border);
+            padding-bottom: 6px;
+        }
+        p, li {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--apple-text-secondary);
+        }
+        ul {
+            padding-left: 20px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            margin-top: 32px;
+            font-size: 13px;
+            text-align: center;
+            color: var(--apple-text-secondary);
+            border-top: 1px solid var(--apple-border);
+            padding-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <div class="date">Last Updated: June 11, 2026</div>
+
+        <p>WellEarn ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use the WellEarn mobile application (the "Service").</p>
+
+        <h2>1. Information We Collect</h2>
+        <ul>
+            <li><strong>Step Count & Physical Activity:</strong> We collect your daily step counts using your device's built-in step counter, step detector, or accelerometer sensors.</li>
+            <li><strong>Account Information:</strong> When you sign in using Google Sign-In, we collect your email address, unique Google User ID, and Google profile picture URL.</li>
+            <li><strong>Local Database (Offline-First):</strong> All activity records (steps and points) are stored locally on your device in a secure Room Database.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+            <li>To track and calculate your daily steps, missions, and rewards.</li>
+            <li>To display your profile image and email inside the application.</li>
+            <li>To synchronize your local activity data with our secure cloud servers (Supabase) to prevent data loss.</li>
+            <li>To serve simulated or real rewarded advertisements that help you claim bonus points.</li>
+        </ul>
+
+        <h2>3. Data Storage and Synchronization</h2>
+        <ul>
+            <li><strong>Offline-First:</strong> The primary source of truth is your device's local database. No internet is required to record steps.</li>
+            <li><strong>Cloud Synchronization:</strong> To back up your data, the app automatically syncs your local ledgers to Supabase once a day at midnight, on app launch, or when you trigger a manual sync in the settings.</li>
+        </ul>
+
+        <h2>4. Third-Party Services</h2>
+        <ul>
+            <li>We use Google Sign-In for authentication.</li>
+            <li>We use Supabase as our secure cloud database provider.</li>
+            <li>We use Google AdMob (or simulated video ad frames) to serve rewarded ads.</li>
+        </ul>
+
+        <h2>5. Battery & Resource Optimization</h2>
+        <ul>
+            <li>The Service is specifically optimized for budget Android devices (2GB RAM or lower) running Android 6.0 (API 23) and above.</li>
+            <li>We avoid continuous CPU polling or aggressive background tasks to minimize battery consumption.</li>
+        </ul>
+
+        <h2>6. Your Rights & Data Retention</h2>
+        <ul>
+            <li>You may sign out of your account at any time, which clears your active session on the device.</li>
+            <li>For data deletion requests, you can contact our support team.</li>
+        </ul>
+
+        <div class="footer">
+            <p>If you have any questions about this Privacy Policy, please contact us at ms1324@gmail.com.</p>
+            <p>&copy; 2026 WellEarn Labs. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
