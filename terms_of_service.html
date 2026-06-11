@@ -14,24 +14,21 @@
             --apple-border: #E5E5EA;
         }
         body {
-            background-color: var(--apple-bg);
+            background-color: var(--apple-surface);
             color: var(--apple-text-primary);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 0;
             min-height: 100vh;
         }
         .container {
             background-color: var(--apple-surface);
-            border: 1px solid var(--apple-border);
-            border-radius: 20px;
-            padding: 32px;
-            max-width: 600px;
+            border: none;
+            border-radius: 0;
+            padding: 24px 16px;
+            max-width: 100%;
             width: 100%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            box-shadow: none;
             box-sizing: border-box;
         }
         h1 {
