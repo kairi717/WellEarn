@@ -1,0 +1,90 @@
+const issueBody = context.payload.issue.body;
+const issueTitle = context.payload.issue.title;
+const issueUrl = context.payload.issue.html_url;
+
+function parseSection(label) {
+  const regex = new RegExp(`### ${label}\\s*([\\s\\S]*?)(?=###|$)`);
+  const match = issueBody.match(regex);
+  return match ? match[1].trim() : "미기입";
+}
+
+// 고도화된 문항들 싹 다 파싱
+const appTitle = parseSection("앱의 한 줄 정의");
+const appPurpose = parseSection("기획 배경 및 목적");
+const appTarget = parseSection("주요 타겟 유저 \\(Target Audience\\)");
+const appBench = parseSection("벤치마킹 및 경쟁사 서비스");
+const bmStructure = parseSection("비즈니스 모델 \\(수익 구조\\)");
+const targetPlatforms = parseSection("출시 플랫폼 \\(중복 선택 가능\\)");
+const targetDevices = parseSection("지원 디바이스 범위");
+const designStatus = parseSection("디자인 자산 준비 상태");
+const designConcept = parseSection("선호하는 UI/UX 콘셉트 및 톤앤매너");
+const budget = parseSection("예상 최대 프로젝트 예산 가이드라인");
+const schedule = parseSection("희망 마켓 출시 일정 \\(Deadline\\)");
+const etcRequests = parseSection("기타 추가 요구사항 및 비기능적 제약사항");
+
+const response = await fetch('https://api.notion.com/v1/pages', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${process.env.NOTION_TOKEN}`,
+    'Notion-Version': '2022-06-28',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    parent: { database_id: process.env.NOTION_DATABASE_ID },
+    properties: {
+      "프로젝트명": {
+        title: [{ text: { content: `${issueTitle} - ${appTitle}` } }]
+      },
+      "희망 일정": {
+        rich_text: [{ text: { content: schedule } }]
+      },
+      "예상 예산": {
+        rich_text: [{ text: { content: budget } }]
+      }
+    },
+    children: [
+      {
+        object: 'block',
+        type: 'heading_2',
+        heading_2: { rich_text: [{ text: { content: "📱 기획 및 비즈니스 개요" } }] }
+      },
+      {
+        object: 'block',
+        type: 'paragraph',
+        paragraph: { rich_text: [{ text: { content: `• 타겟 유저: ${appTarget}\n• 수익 모델:\n${bmStructure}\n\n• 기획 배경 및 목적:\n${appPurpose}` } }] }
+      },
+      {
+        object: 'block',
+        type: 'heading_2',
+        heading_2: { rich_text: [{ text: { content: "⚙️ 개발 플랫폼 및 하드웨어 인프라" } }] }
+      },
+      {
+        object: 'block',
+        type: 'paragraph',
+        paragraph: { rich_text: [{ text: { content: `• 타겟 플랫폼: ${targetPlatforms}\n• 지원 기기 범위: ${targetDevices}` } }] }
+      },
+      {
+        object: 'block',
+        type: 'heading_2',
+        heading_2: { rich_text: [{ text: { content: "🎨 디자인 및 기타 상세 스펙" } }] }
+      },
+      {
+        object: 'block',
+        type: 'paragraph',
+        paragraph: { rich_text: [{ text: { content: `• 디자인 준비도: ${designStatus}\n• 요구 스타일: ${designConcept}\n\n• 특이사항:\n${etcRequests}` } }] }
+      },
+      {
+        object: 'block',
+        type: 'paragraph',
+        paragraph: { rich_text: [{ text: { content: `🔗 원본 GitHub 이슈 주소: ${issueUrl}` } }] }
+      }
+    ]
+  })
+});
+
+if (!response.ok) {
+  const errData = await response.json();
+  core.setFailed(`Notion API Error: ${JSON.stringify(errData)}`);
+} else {
+  console.log("Success: Deep Synced to Notion Workspace!");
+}
