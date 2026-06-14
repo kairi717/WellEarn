@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>앱 개발 요구사항 수렴 체크리스트</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0070f3;
+            border-bottom: 2px solid #0070f3;
+            padding-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            font-size: 20px;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        .description {
+            color: #666;
+            font-size: 14px;
+            font-style: italic;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+        .intro {
+            background-color: #f0f7ff;
+            border-left: 4px solid #0070f3;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        .sub-label {
+            font-weight: normal;
+            color: #666;
+            font-size: 13px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+        .checkbox-group {
+            margin-left: 5px;
+        }
+        .checkbox-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 4px;
+            margin-right: 8px;
+        }
+        .nested-checkboxes {
+            margin-left: 25px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-weight: bold;
+            color: #0070f3;
+        }
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📱 앱 개발 요구사항 수렴 체크리스트</h1>
+    
+    <div class="intro">
+        안녕하세요! 성공적인 앱 개발을 위해 초기 요구사항을 파악하기 위한 질문지입니다.<br>
+        완벽하게 채우지 못하시더라도 <strong>아는 범위 내에서 최대한 작성</strong>해 주시면, 이를 바탕으로 더욱 정확한 견적 산출과 상세한 상담을 도와드리겠습니다.
+    </div>
+
+    <form>
+        <!-- 1. 비즈니스 개요 및 기획 의도 -->
+        <h2>1. 비즈니스 개요 및 기획 의도</h2>
+        <div class="description">고객사에서 왜 이 앱을 만들려고 하는지, 핵심 가치가 무엇인지 파악하는 단계입니다.</div>
+        
+        <div class="form-group">
+            <label>앱의 한 줄 정의 <span class="sub-label">* 이 앱을 한 문장으로 표현한다면 무엇인가요?</span></label>
+            <input type="text" placeholder="답변을 입력해 주세요.">
+        </div>
+        
+        <div class="form-group">
+            <label>기획 배경 및 목적 <span class="sub-label">* 앱을 개발하게 된 계기와 이를 통해 해결하려는 문제는 무엇인가요?</span></label>
+            <textarea placeholder="답변을 입력해 주세요."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>주요 타겟 유저 (Target Audience) <span class="sub-label">* 주요 사용자층은 누구인가요? (예: 20대 대학생, 40대 자영업자, 글로벌 K-Pop 팬 등)</span></label>
+            <input type="text" placeholder="답변을 입력해 주세요.">
+        </div>
+        
+        <div class="form-group">
+            <label>벤치마킹 및 경쟁사 앱 <span class="sub-label">* 참고하고 싶거나 유사한 서비스가 있다면 무엇인가요? (타사 앱 이름이나 링크 포함)</span></label>
+            <textarea placeholder="답변을 입력해 주세요."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>비즈니스 모델 (수익 구조)</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 무료 앱 (수익 목적 없음)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 인앱 광고 (구글 애드몹 등)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 인앱 결제 (아이템, 콘텐츠 구매)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 정기 구독 (매월/매년 결제)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 커머스 (실물 상품 판매 및 결제)</label></div>
+                <div class="checkbox-item" style="display:block;">
+                    <label style="display:inline-block; margin-bottom: 5px;"><input type="checkbox"> 기타:</label>
+                    <input type="text" style="display:inline-block; width: auto; min-width: 250px; padding: 5px; margin-left: 5px;" placeholder="기타 수익 모델 입력">
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 타겟 플랫폼 및 개발 방식 -->
+        <h2>2. 타겟 플랫폼 및 개발 방식</h2>
+        <div class="description">안드로이드와 iOS 동시 출시 여부 및 개발 방향을 결정하는 단계입니다.</div>
+        
+        <div class="form-group">
+            <label>출시 플랫폼 (중복 선택 가능)</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> Android (구글 플레이 스토어)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> iOS (애플 앱스토어)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> Web (웹 브라우저에서도 접근 가능한 웹 버전)</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>지원 기기 범위</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 스마트폰 전용</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 태블릿 / iPad 포함</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 스마트워치 등 웨어러블 포함</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>선호하는 개발 방식 <span class="sub-label">* 잘 모르실 경우 비워두셔도 됩니다. 개발사에서 최적의 방식을 제안해 드립니다.</span></label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 네이티브 개발 (Kotlin / Swift)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 크로스 플랫폼 개발 (Flutter, React Native 등)</label></div>
+            </div>
+        </div>
+
+        <!-- 3. 핵심 기능 요구사항 -->
+        <h2>3. 핵심 기능 요구사항</h2>
+        <div class="description">구현해야 할 주요 기능들을 체크하고 구체화하는 단계입니다.</div>
+        
+        <div class="form-group">
+            <label>회원가입 및 로그인</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 일반 이메일 가입/로그인</label></div>
+                <div class="checkbox-item">
+                    <label><input type="checkbox"> 간편 소셜 로그인</label>
+                </div>
+                <div class="nested-checkboxes">
+                    <label style="margin-right: 15px; font-weight: normal;"><input type="checkbox"> 카카오</label>
+                    <label style="margin-right: 15px; font-weight: normal;"><input type="checkbox"> 네이버</label>
+                    <label style="margin-right: 15px; font-weight: normal;"><input type="checkbox"> 구글</label>
+                    <label style="margin-right: 15px; font-weight: normal;"><input type="checkbox"> 애플</label>
+                </div>
+                <div class="checkbox-item"><label><input type="checkbox"> 본인 인증 시스템 (휴대폰 PASS, iPIN 등)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 생체 인증 (Face ID, 지문 인식)</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>사용자 계정 및 프로필</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 프로필 사진 및 닉네임 설정</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 알림 설정 (푸시 알림 ON/OFF)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 회원 탈퇴 및 데이터 삭제 기능</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>커뮤니티 및 소통 기능</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 게시판 (글쓰기, 수정, 삭제)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 댓글 / 대댓글 기능</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 좋아요 / 북마크(스크랩) 기능</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> SNS 공유하기 (카카오톡, 링크 복사 등)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 1:1 채팅 또는 실시간 오픈 채팅</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>결제 및 커머스 기능</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 일반 웹 결제/PG사 연동 (신용카드, 계좌이체 등)</label></div>
+                <div class="checkbox-item">
+                    <label><input type="checkbox"> 간편결제 연동 (카카오페이, 네이버페이, 토스페이 등)</label>
+                </div>
+                <div class="checkbox-item"><label><input type="checkbox"> 인앱 결제 (App Store / Google Play 자체 결제)</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>위치 기반 서비스 (LBS)</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> GPS 기반 사용자 현재 위치 파악</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 지도 표시 및 마커 렌더링 (구글, 네이버, 카카오 지도 등)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 내 주변 장소 검색 및 거리 계산</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>디바이스 기능 제어</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 카메라 및 사진 앨범 접근 (이미지 업로드용)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 푸시 알림 수신 (마케팅 및 안내 알림용)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 오디오/마이크 접근 (음성 녹음 등)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 블루투스(BLE) 연동 (외부 기기 연결 필요 시)</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>관리자 페이지 (Admin Web) <span class="sub-label">* 회원을 관리하고 데이터를 모니터링할 백엔드 웹페이지가 필요하신가요?</span></label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 필요함 (회원 관리, 콘텐츠 업로드, 통계 데이터 확인 등)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 필요 없음</label></div>
+            </div>
+        </div>
+
+        <!-- 4. 디자인 및 사용자 경험 (UI/UX) -->
+        <h2>4. 디자인 및 사용자 경험 (UI/UX)</h2>
+        <div class="description">앱의 비주얼 콘셉트와 현재 준비 상태를 확인합니다.</div>
+        
+        <div class="form-group">
+            <label>디자인 자산 준비 상태</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 아이디어만 있으며, 기획 및 디자인부터 전적으로 맡겨야 함</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 상세 기획서 및 와이어프레임(스토리보드)이 준비되어 있음</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 로고, 브랜드 컬러, GUI 디자인(Figma 등)까지 완료되어 개발만 필요함</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>선호하는 디자인 콘셉트 <span class="sub-label">* 원하시는 앱의 무드나 참고할 이미지, 벤치마킹 스타일을 적어주세요.</span></label>
+            <textarea placeholder="예: 다크 모드 중심, 미니멀하고 깔끔함, 화려하고 트렌디함 등"></textarea>
+        </div>
+
+        <!-- 5. 출시 및 운영 인프라 -->
+        <h2>5. 출시 및 운영 인프라</h2>
+        <div class="description">앱 출시 이후 서비스 유지보수와 운영 환경에 대한 항목입니다.</div>
+        
+        <div class="form-group">
+            <label>다국어 지원 여부</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 한국어 전용</label></div>
+                <div class="checkbox-item" style="display:block;">
+                    <label style="display:inline-block; margin-bottom: 5px;"><input type="checkbox"> 글로벌 지원 (필요 언어):</label>
+                    <input type="text" style="display:inline-block; width: auto; min-width: 200px; padding: 5px; margin-left: 5px;" placeholder="예: 영어, 일본어 등">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>스토어 개발자 계정 보유 여부</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><label><input type="checkbox"> 구글 개발자 계정 보유 중 ($25 일회성 비용)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 애플 개발자 계정 보유 중 (연간 $99 비용)</label></div>
+                <div class="checkbox-item"><label><input type="checkbox"> 둘 다 미보유 (등록 가이드 필요)</label></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>외부 API 및 시스템 연동 필요성 <span class="sub-label">* 공공데이터, 날씨, 외부 물류 시스템 등 연동이 필요한 외부 API가 있나요?</span></label>
+            <textarea placeholder="답변을 입력해 주세요."></textarea>
+        </div>
+
+        <!-- 6. 예산, 일정 및 기타 특이사항 -->
+        <h2>6. 예산, 일정 및 기타 특이사항</h2>
+        <div class="description">현실적인 프로젝트 조율과 우선순위 선정을 위한 항목입니다.</div>
+        
+        <div class="form-group">
+            <label>희망 출시 일정 (데드라인)</label>
+            <input type="text" placeholder="예: 3개월 이내 / 올해 하반기 중 / 특정 이벤트 날짜 전까지 등">
+        </div>
+        
+        <div class="form-group">
+            <label>예상 프로젝트 예산 범위</label>
+            <input type="text" placeholder="생각하고 계신 대략적인 예산 규모를 알려주세요.">
+        </div>
+        
+        <div class="form-group">
+            <label>기타 요구사항 및 문의사항</label>
+            <textarea placeholder="위에 언급되지 않은 특별한 기술적 요구사항이나 우려되시는 점을 적어주세요."></textarea>
+        </div>
+
+        <div class="footer">
+            작성해 주셔서 감사합니다. 내용을 바탕으로 꼼꼼히 검토 후 연락드리겠습니다!
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
