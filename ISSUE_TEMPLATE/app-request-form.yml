@@ -1,0 +1,183 @@
+name: "📱 앱 개발 요구사항 정의서 (상세 가이드 포함)"
+description: "정확한 견적 산출 및 개발 설계를 위해 프로젝트 상세 요구사항을 입력하는 서식입니다."
+title: "[요구사항 제출] "
+labels: ["client-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📋 프로젝트 상세 요구사항 정의서
+        안녕하세요! 성공적인 앱 런칭을 위해 아래 항목들을 최대한 구체적으로 작성해 주세요. 
+        잘 모르시거나 결정되지 않은 항목은 **'미정'** 혹은 공란으로 두셔도 무방합니다.
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 1. 비즈니스 개요 및 서비스 기획
+
+  - type: input
+    id: app_title
+    attributes:
+      label: "앱의 한 줄 정의"
+      placeholder: "예: 위치 기반의 자영업자 간 식자재 직거래 매칭 플랫폼"
+    validations:
+      required: true
+
+  - type: textarea
+    id: app_purpose
+    attributes:
+      label: "기획 배경 및 목적"
+      placeholder: "앱을 개발하게 된 계기와 이를 통해 해결하려는 기존 시장의 문제점을 구체적으로 적어주세요."
+
+  - type: input
+    id: app_target
+    attributes:
+      label: "주요 타겟 유저 (Target Audience)"
+      placeholder: "예: 20대 대학생 / 40~50대 개인 음식점 자영업자 등"
+
+  - type: textarea
+    id: app_bench
+    attributes:
+      label: "벤치마킹 및 경쟁사 서비스"
+      placeholder: "참고하고 싶거나 유사한 서비스의 앱 이름, 웹사이트 링크 등을 적어주시고, 그 서비스에서 어떤 부분을 벤치마킹하고 싶은지 기재해 주세요."
+
+  - type: checkboxes
+    id: bm_structure
+    attributes:
+      label: "비즈니스 모델 (수익 구조)"
+      options:
+        - label: "무료 서비스 (수익 목적 없음 / 사내용 수단)"
+        - label: "인앱 광고 (구글 애드몹, 하우스 광고 등)"
+        - label: "인앱 결제 (App Store / Google Play 자체 결제를 통한 디지털 재화 판매)"
+        - label: "정기 구독 서비스 (매월/매년 멤버십 요금제 정기 결제)"
+        - label: "커머스 플랫폼 (실물 상품 중개, 결제 및 PG 연동)"
+        - label: "중개 수수료 방식 (거래 건당 일정 비율의 수수료 차감)"
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 2. 플랫폼 및 타겟 디바이스 범위
+
+  - type: checkboxes
+    id: target_platforms
+    attributes:
+      label: "출시 플랫폼 (중복 선택 가능)"
+      options:
+        - label: "Android (구글 플레이 스토어)"
+        - label: "iOS (애플 앱스토어)"
+        - label: "Web 브라우저 버전 (PC/모바일 웹 서비스도 동시 필요 환경)"
+
+  - type: checkboxes
+    id: target_devices
+    attributes:
+      label: "지원 디바이스 범위"
+      options:
+        - label: "스마트폰 전용 (기본 세팅)"
+        - label: "태블릿 및 iPad 환경 레이아웃 최적화 포함"
+        - label: "스마트워치 등 웨어러블 디바이스 연동"
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 3. 기능 요구사항 (Core Features)
+
+  - type: checkboxes
+    id: feat_auth
+    attributes:
+      label: "회원가입 및 사용자 인증 수준"
+      options:
+        - label: "일반 이메일 회원가입 및 ID/PW 로그인"
+        - label: "소셜 간편 로그인 (카카오톡, 네이버, 구글, 애플 등)"
+        - label: "휴대폰 본인 인증 시스템 연동 (PASS, iPIN 등 실명인증 필수 계정)"
+        - label: "생체 인증 연동 (Face ID, 지문 인식 기능 포함)"
+
+  - type: checkboxes
+    id: feat_social
+    attributes:
+      label: "소통 및 커뮤니티 기능 활성화 여부"
+      options:
+        - label: "커뮤니티 게시판 (텍스트/이미지 업로드, 수정, 삭제)"
+        - label: "댓글 및 대댓글(타임라인 피드) 아키텍처"
+        - label: "좋아요, 찜하기, 북마크 기능"
+        - label: "인앱 푸시 알림 (공지사항, 마케팅, 실시간 이벤트 알림 수신)"
+        - label: "1:1 실시간 채팅 또는 단체 오픈 채팅 방 개설 기능"
+
+  - type: checkboxes
+    id: feat_commerce
+    attributes:
+      label: "결제 및 커머스 모듈 연동"
+      options:
+        - label: "일반 PG사 연동 (신용카드 결제, 실시간 계좌이체 등 웹뷰 결제)"
+        - label: "간편 결제 연동 (네이버페이, 카카오페이, 토스페이 등 API 연동)"
+        - label: "장바구니 및 정산/주문 관리 프로세스 필요"
+
+  - type: checkboxes
+    id: feat_lbs_hardware
+    attributes:
+      label: "위치 정보 및 디바이스 하드웨어 제어 요구사항"
+      options:
+        - label: "GPS 기반 사용자 실시간 위치 트래킹 및 좌표 수집"
+        - label: "인앱 지도 연동 및 특정 마커 커스텀 렌더링 (구글/네이버/카카오 지도 API)"
+        - label: "카메라 권한 및 사진 앨범 접근 권한 제어 (프로필, 이미지 업로드 필수)"
+        - label: "오디오 및 마이크 하드웨어 접근 기능 (음성 녹음 등)"
+        - label: "블루투스 소모전력(BLE) 통신을 통한 외부 하드웨어 기기 하이브리드 연동"
+
+  - type: checkboxes
+    id: feat_admin
+    attributes:
+      label: "백엔드 백오피스 (관리자 페이지) 요구사항"
+      options:
+        - label: "통합 데이터 관리를 위한 웹(Web) 백오피스 환경 필요"
+        - label: "주요 탑재 기능: 전체 대시보드 통계 차트, 가입 회원 관리, 콘텐츠/상품 등록, 매출 정산 현황판"
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 4. UI/UX 디자인 및 출시/인프라 요구사항
+
+  - type: checkboxes
+    id: design_status
+    attributes:
+      label: "디자인 자산 준비 상태"
+      options:
+        - label: "현재 아이디어 단계로, 기획서(화면설계서) 및 UI/UX 디자인 프로세스부터 전적으로 진행 필요"
+        - label: "상세 기획 및 와이어프레임(스토리보드) 완료 상태로 UX/UI 디자인 작업부터 진행 필요"
+        - label: "로고, 브랜드 에셋, 피그마(Figma) GUI 디자인까지 완전 수립되어 개발 구축 가이드만 필요한 상태"
+
+  - type: textarea
+    id: design_concept
+    attributes:
+      label: "선호하는 UI/UX 콘셉트 및 톤앤매너"
+      placeholder: "원하시는 앱의 전반적인 분위기, 색상 톤, 혹은 반드시 피해야 할 레이아웃 스타일이 있다면 작성해 주세요."
+
+  - type: checkboxes
+    id: infra_global
+    attributes:
+      label: "글로벌 다국어 지원 설계"
+      options:
+        - label: "국내 타겟 (한국어 단일 렌더링 아키텍처)"
+        - label: "글로벌 타겟 (한국어, 영어, 일본어, 중국어 등 동시 다국어 Localization 로직 필요)"
+
+  - type: textarea
+    id: external_api
+    attributes:
+      label: "외부 레거시 시스템 및 서드파티 API 연동 리스트"
+      placeholder: "예: 공공데이터 포털 API, 외부 ERP 시스템, 특정 오픈마켓 API 연동 등 기획 중인 외부 파이프라인 시스템을 기재해 주세요."
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 5. 프로젝트 일정 및 타겟 예산 산정
+
+  - type: input
+    id: schedule_deadline
+    attributes:
+      label: "희망 마켓 출시 일정 (Deadline)"
+      placeholder: "예: 프로토타입 3개월 내 완공 희망 / 2026년 12월 마켓 런칭 타겟 등"
+
+
+  - type: textarea
+    id: etc_requests
+    attributes:
+      label: "기타 추가 요구사항 및 비기능적 제약사항"
+      placeholder: "보안 취약점 검수 패스 여부, 추후 직접 유지보수를 위한 인수인계 문서 및 인프라 이관 조건 등 상세 요구사항을 자유롭게 기재해 주세요."
